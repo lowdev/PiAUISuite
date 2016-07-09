@@ -2,7 +2,6 @@
 
 #Script to make install of AUI Suite very easy
 function dependencies() {
-    ARCH=$1
     #Ask to install dependencies
     install_method=`pgrep apt-get`
     if [ -z $install_method ] ; then
@@ -10,6 +9,7 @@ function dependencies() {
 		echo "These are necessary for any of the options, so you should probably press y unless you absolutely know you have them already"
 		read option
 		if [ $option == "y" ] || [ $option == "Y" ] ; then
+			ARCH=$1
 			if [ "$ARCH" == "armv6l" ] ; then
 				sudo apt-get install locate curl libboost-dev libboost-regex-dev xterm xfonts-base xfonts-utils youtube-dl axel mpg123 libcurl4-openssl-dev flac sox
 			else
@@ -38,13 +38,14 @@ function playvideo_install() {
 }
 
 function download() {
-    DIR=$1
-    USER_HOME="$2"
     #Install downloader script
     echo "Install downloader? y/n"
     echo "This script automates the download of torrents. Ex. 'download wheezy' finds and downloads the newest debian wheezy image"
     read option
     if [ $option == "y" ] || [ $option == "Y" ] ; then
+		DIR=$1
+		USER_HOME="$2"
+
 		echo "Installing downloader script"
 		echo "Enter host: ex, localhost (this is probably what it is)"
 		read host
@@ -73,13 +74,14 @@ function download() {
 }
 
 function gvapi() {
-    DIR=$1
-    USER_HOME="$2"
     #Install gvapi
     echo "Install gvapi (googlevoice api)? y/n"
     echo "This script installs the google voice api. It is really useful for home automation/robotics enthusiasts."
     read option
     if [ $option == "y" ] || [ $option == "Y" ] ; then
+		DIR=$1
+		USER_HOME="$2"
+
         echo "Installing Text Command Script"
         echo "Enter google voice username: "
         read user
@@ -103,13 +105,14 @@ function gvapi() {
 }
 
 function gtextcommand {
-    DIR=$1
-    USER_HOME="$2"
     #Install gtextcommand script
     echo "Install gtextcommand (google voice text command system)? y/n"
     echo "This installs gtextcommand. This uses google voice to check for system commands from your number with a passcode."
     read option
     if [ $option == "y" ] || [ $option == "Y" ] ; then
+		DIR=$1
+		USER_HOME="$2"
+
 		echo "Installing Text Command Script"
 		echo "Enter google voice username: "
 		read user
@@ -156,12 +159,13 @@ function gtextcommand {
 }
 
 function youtube() {
-    DIR=$1
-    USER_HOME="$2"
     echo "Install youtube scripts? y/n"
     echo "This installs youtube, youtube-safe, youtube-dl, and other scripts that allow you to download, stream, and browse videos from many sites"
     read option
     if [ $option == "y" ] || [ $option == "Y" ] ; then
+		DIR=$1
+		USER_HOME="$2"
+
         tmp="../Youtube/"
         tmp+="$DIR"
         tmp+="youtube-search"
@@ -184,12 +188,13 @@ function youtube() {
 }
 
 function voicecommand_install() {
-    DIR=$1
-    USER_HOME="$2"
     echo "Install voicecommand? y/n"
     echo "This is probably the coolest script here and ties many of these together. It is an easily customizable voice control system. It uses speech recognition and text to speech to listen to you, respond to you, and run commands based on what you say."
     read option
     if [ $option == "y" ] || [ $option == "Y" ] ; then
+		DIR=$1
+		USER_HOME="$2"
+
         tmp="../VoiceCommand/"
         tmp+="$DIR"
         tmp+="voicecommand"
