@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./AUISuiteInstaller.sh
+source AUISuiteInstaller.sh
 
 #Script to make install of AUI Suite very easy
 function dependencies() {
