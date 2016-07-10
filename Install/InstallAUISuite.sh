@@ -9,7 +9,7 @@ function dependencies() {
 		echo "Install dependencies? y/n"
 		echo "These are necessary for any of the options, so you should probably press y unless you absolutely know you have them already"
 		read option
-		if [ $option == "y" ] || [ $option == "Y" ] ; then
+		if [[ $option == "y" ]] || [[ $option == "Y" ]] ; then
 			installDependencies $1
 		fi
     fi
@@ -20,7 +20,7 @@ function playvideo_install() {
     echo "Install playvideo? y/n"
     echo "This script indexes your movies and tv shows in order to quickly find, randomize, and/or play them. I find it extremely useful"
     read option
-    if [ $option == "y" ] || [ $option == "Y" ] ; then
+    if [[ $option == "y" ]] || [[ $option == "Y" ]] ; then
 		installPlayvideo_install
     else
         echo "Skipping playvideo install"
@@ -32,7 +32,7 @@ function download() {
     echo "Install downloader? y/n"
     echo "This script automates the download of torrents. Ex. 'download wheezy' finds and downloads the newest debian wheezy image"
     read option
-    if [ $option == "y" ] || [ $option == "Y" ] ; then
+    if [[ $option == "y" ]] || [[ $option == "Y" ]] ; then
 		installDownload $1 $2
     else
         echo "Skipping downloader install"
@@ -44,7 +44,7 @@ function gvapi() {
     echo "Install gvapi (googlevoice api)? y/n"
     echo "This script installs the google voice api. It is really useful for home automation/robotics enthusiasts."
     read option
-    if [ $option == "y" ] || [ $option == "Y" ] ; then
+    if [[ $option == "y" ]] || [[ $option == "Y" ]] ; then
 		intallGvapi $1 $2
     else
         echo "Skipping gvapi install"
@@ -56,7 +56,7 @@ function gtextcommand {
     echo "Install gtextcommand (google voice text command system)? y/n"
     echo "This installs gtextcommand. This uses google voice to check for system commands from your number with a passcode."
     read option
-    if [ $option == "y" ] || [ $option == "Y" ] ; then
+    if [[ $option == "y" ]] || [[ $option == "Y" ]] ; then
 		installGtextcommand $1 $2
     else
         echo "Skipping gtextcommand install"
@@ -67,7 +67,7 @@ function youtube() {
     echo "Install youtube scripts? y/n"
     echo "This installs youtube, youtube-safe, youtube-dl, and other scripts that allow you to download, stream, and browse videos from many sites"
     read option
-    if [ $option == "y" ] || [ $option == "Y" ] ; then
+    if [[ $option == "y" ]] || [[ $option == "Y" ]] ; then
 		installYoutube $1 $2
     else
         echo "Skipping youtube install"
@@ -78,12 +78,12 @@ function voicecommand_install() {
     echo "Install voicecommand? y/n"
     echo "This is probably the coolest script here and ties many of these together. It is an easily customizable voice control system. It uses speech recognition and text to speech to listen to you, respond to you, and run commands based on what you say."
     read option
-    if [ $option == "y" ] || [ $option == "Y" ] ; then
+    if [[ $option == "y" ]] || [[ $option == "Y" ]] ; then
 		installVoicecommand_install $1 $2
 
         echo "Would you like voicecommand to try to set itself up? y/n"
         read option
-        if [ $option == "y" ] || [ $option == "Y" ] ; then
+        if [[ $option == "y" ]] || [[ $option == "Y" ]] ; then
             voicecommand -s
         else
             echo "You can do this manually at any time by running voicecommand -s"
