@@ -80,9 +80,7 @@ function voicecommand_install() {
     read option
     if [ $option == "y" ] || [ $option == "Y" ] ; then
 		installVoicecommand_install $1 $2
-	else
-	    echo "I found a command file"
-        fi
+
         echo "Would you like voicecommand to try to set itself up? y/n"
         read option
         if [ $option == "y" ] || [ $option == "Y" ] ; then

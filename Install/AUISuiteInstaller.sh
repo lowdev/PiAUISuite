@@ -141,7 +141,6 @@ function installYoutube() {
 function installVoicecommand_install() {
 	DIR=$1
 	USER_HOME="$2"
-
 	tmp="../VoiceCommand/"
 	tmp+="$DIR"
 	tmp+="voicecommand"
@@ -151,6 +150,9 @@ function installVoicecommand_install() {
 	sudo cp ../VoiceCommand/speech-recog.sh /usr/bin/
 	sudo cp ../VoiceCommand/voicecommand.8.gz /usr/share/man/man8/
 	if [[ ! -f "$USER_HOME/.commands.conf" ]] ; then
-	echo "No commands found, using default"
+		echo "No commands found, using default"
 		cp ../VoiceCommand/commands.conf "$USER_HOME/.commands.conf"
+	else
+		echo "I found a command file"
+	fi
 }
